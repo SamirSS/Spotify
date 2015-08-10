@@ -1,8 +1,41 @@
-
-        <h1> $potify </h1>
+<!doctype html>
+<html>
+  <head>
+    <title> $potify </title>
+  </head>
+  <body>
+      <nav>
+        <h1>$potify</h1>
+        
+        <form method="POST" action="song">
+          <input type="text" name="song_name" placeholder="Add Song">  
+          <input type="submit" value="Add Song">
+        </form>
         <br>
-        <h3> Sign up </h3>
-        <form method="POST" action="/sign-up">
-          <input type="text" name="username" placeholder="Username">
-          <br><br>
-          <input type="submit" value = "Sign Up">
+        <form method="POST" action="playlist">
+          <input type="text" name="playlist_name" placeholder="Create a Playlist">  
+          <input type="submit" value="Create">
+        </form>
+        
+        <br>
+        <h2>Songs:</h2>
+        <% Song.all.each do |song| %>
+          <h3> <%= song.song_name %> </h3>
+          <form method="post" action="/add_song">
+            <select name="add_song">
+              <option value="1">Select a playlist</option>
+              <% Playlist.all.each do |playlist| %>
+              <option value="2"><%= playlist.playlist_name %></option>
+              <% end %>
+            </select>
+            <input type="submit" value="Add">
+          </form>
+        <% end %>
+        
+      </nav>
+        
+
+      <footer>
+      </footer>
+  </body>
+</html>

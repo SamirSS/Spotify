@@ -21,21 +21,21 @@ ActiveRecord::Schema.define(version: 20150807185620) do
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.string   "name"
+    t.string   "playlist_name"
     t.integer  "user_id_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name"
-    t.string   "song_link"
+    t.string   "song_name"
+    t.string   "artist_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "username"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
